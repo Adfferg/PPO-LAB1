@@ -48,6 +48,18 @@ public class DataFragment extends Fragment {
                 converted_number_view.setText(charSequence);
             }
         });
+        viewModel.getSelectedItem2().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer item) {
+                spinner2.setSelection((item));
+            }
+        });
+        viewModel.getSelectedItem3().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer item) {
+                spinner3.setSelection((item));
+            }
+        });
         number_to_convert_view.setText(viewModel.getNumberToConvert().getValue());
         converted_number_view.setText(viewModel.getConvertedNumber().getValue());
         Button swapButton = rootView.findViewById(R.id.swapButton);
@@ -86,8 +98,8 @@ public class DataFragment extends Fragment {
                     spinner2.setAdapter(temperature_adapter);
                     spinner3.setAdapter(temperature_adapter);
                 }
-                spinner2.setSelection(viewModel.getSelectedItem2());
-                spinner3.setSelection(viewModel.getSelectedItem3());
+                spinner2.setSelection(viewModel.getSelectedItem2().getValue());
+                spinner3.setSelection(viewModel.getSelectedItem3().getValue());
                 viewModel.setSelectedItem1(spinner1.getSelectedItemPosition());
             }
 
@@ -119,24 +131,12 @@ public class DataFragment extends Fragment {
         swapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Swap();
+                viewModel.Swap();
             }
         });
         return rootView;
     }
 
-    public void Swap() {
-       int temp = spinner2.getSelectedItemPosition();
-        spinner2.setSelection(spinner3.getSelectedItemPosition());
-        spinner3.setSelection(temp);
-        String temp2 = viewModel.getNumberToConvert().getValue();
-        viewModel.setNumberToConvert(viewModel.getConvertedNumber().getValue());
-        viewModel.setConvertedNumber(temp2);
-        temp = viewModel.getSelectedItem2();
-        viewModel.setSelectedItem2(viewModel.getSelectedItem3());
-        viewModel.setSelectedItem3(temp);
-        number_to_convert_view.setText(viewModel.getNumberToConvert().getValue());
-        converted_number_view.setText(viewModel.getConvertedNumber().getValue());
-    }
+
 
 }

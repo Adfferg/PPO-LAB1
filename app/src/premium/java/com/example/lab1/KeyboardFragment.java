@@ -72,19 +72,20 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener{
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Delete();
+                viewModel.Delete();
             }
         });
         clearAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ClearAll();
+                viewModel.ClearAll();
             }
         });
+
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Convert();
+                viewModel.Convert();;
             }
         });
         return rootView;
@@ -97,72 +98,6 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener{
         viewModel = ViewModelProviders.of(requireActivity()).get(SharedViewModel.class);
     }
 
-    private void ClearAll(){
-        viewModel.setNumberToConvert("");
-        viewModel.setConvertedNumber("");
-    }
-    public void Delete(){
-        if (viewModel.getNumberToConvert().getValue().length() > 0) {
-            viewModel.setNumberToConvert(viewModel.getNumberToConvert().getValue().substring(0, viewModel.getNumberToConvert().getValue().length() - 1));
-        }
-    }
-    public void Convert() {
-        if (viewModel.getNumberToConvert().getValue().length() > 0 && !viewModel.getNumberToConvert().getValue().equals(".")) {
-            int unitCategorySelected = viewModel.getSelectedItem1();
-            int value1 = viewModel.getSelectedItem2();
-            int value2 = viewModel.getSelectedItem3();
-            if (value1 == value2)
-                viewModel.setConvertedNumber(viewModel.getNumberToConvert().getValue());
-            else if (unitCategorySelected == 0) {
-                double value = Double.parseDouble(viewModel.getNumberToConvert().getValue());
-                if (value1 == 1) value *= 0.3048;
-                else if (value1 == 2) value *= 1609.34;
-                switch (value2) {
-                    case (0):
-                        viewModel.setConvertedNumber(String.valueOf(value));
-                        break;
-                    case (1):
-                        viewModel.setConvertedNumber(String.valueOf(value * 3.28084));
-                        break;
-                    case (2):
-                        viewModel.setConvertedNumber(String.valueOf(value * 0.000621371));
-                        break;
-                }
-            } else if (unitCategorySelected == 1) {
-                double value = Double.parseDouble(viewModel.getNumberToConvert().getValue());
-                if (value1 == 1) value *= 0.453592;
-                else if (value1 == 2) value *= 0.0283495;
-                switch (value2) {
-                    case (0):
-                        viewModel.setConvertedNumber(String.valueOf(value));
-                        break;
-                    case (1):
-                        viewModel.setConvertedNumber(String.valueOf(value * 2.20462));
-                        break;
-                    case (2):
-                        viewModel.setConvertedNumber(String.valueOf(value * 35.274));
-                        break;
-                }
-            } else if (unitCategorySelected == 2) {
-                double value = Double.parseDouble(viewModel.getNumberToConvert().getValue());
-                if (value1 == 1) value -= 273.15;
-                else if (value1 == 2) value = (value - 32) * 5 / 9;
-                switch (value2) {
-                    case (0):
-                        viewModel.setConvertedNumber(String.valueOf(value));
-                        break;
-                    case (1):
-                        viewModel.setConvertedNumber(String.valueOf(value + 273.15));
-                        break;
-                    case (2):
-                        viewModel.setConvertedNumber(String.valueOf((value * 9 / 5) + 32));
-                        break;
-                }
-            }
-        } else {
-            viewModel.setConvertedNumber("");
-        }
-    }
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void CopyNumber(String copiedText) {
         int sdk = Build.VERSION.SDK_INT;
