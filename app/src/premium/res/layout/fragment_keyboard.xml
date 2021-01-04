@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_one"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_1"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/button_two"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_2"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/button_three"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_3"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/delete_button"
+                android:layout_width="69dp"
+                android:layout_height="70dp"
+                android:onClick="OnDelete"
+                android:text="@string/delete"
+                tools:ignore="ButtonStyle" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_four"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_4"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/button_five"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_5"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/button_six"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_6"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:onClick="OnClearAll"
+                android:text="@string/clear_all"
+                tools:ignore="ButtonStyle" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_seven"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_7"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/button_eight"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_8"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/button_nine"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_9"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/copyButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:onClick="OnCopy1"
+                android:text="@string/copy_1"
+                tools:ignore="ButtonStyle" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/dot"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/button_zero"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="@string/_0"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/convertButton"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:background="@android:color/holo_orange_dark"
+                android:onClick="OnConvert"
+                android:text="@string/convert"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/copyButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:onClick="OnCopy2"
+                android:text="@string/copy_2"
+                tools:ignore="ButtonStyle" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>
